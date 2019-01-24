@@ -36,9 +36,9 @@ $("#search").on("click", function (event) {
 
 $("#search").on("click", function (event) {
   event.preventDefault();
-  var WeatherAp = $("input").val();
-  var queryURL = "https://openweathermap.org/api/" + WeatherAp + "?api_key=2839d424c20e5a81965724e469b669bb";
-
+  var zipInput = $("#zipValue").val(); 
+  var APIKey = "2839d424c20e5a81965724e469b669bbs";
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipInput + ",us&appid=" + APIKey;
   $.ajax({
     url: queryURL,
     method: "GET"
