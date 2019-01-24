@@ -1,0 +1,29 @@
+body {
+    background-image: url("background.jpeg");
+    background-size: cover;
+}
+
+#name{
+    font-family: 'Rancho', cursive;
+}
+#nav-link{
+    font-family: 'Nixie One', cursive;
+}
+.box{
+    width: 100%;
+    text-align:center;
+    padding-top: 50pt;
+    
+
+}
+#search {
+    width: 600px;
+}
+h1 {
+    font-family: 'Rancho', cursive;
+    width: 100%;
+    text-align:center;
+    font-size: 125pt;
+    padding-top: 50pt;
+    color: white;
+}
