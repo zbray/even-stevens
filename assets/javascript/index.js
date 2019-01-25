@@ -8,7 +8,7 @@
   //   messagingSenderId: "541706167802"
   // };
   // firebase.initializeApp(config);
-
+ 
 
 //On click event that will take values entered and store
 $("#submit").on("click", function (event) {
