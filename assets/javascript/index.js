@@ -38,57 +38,57 @@ $("#submit").on("click", function (event) {
 
     var weatherDiv = $("#weather");
       //Code below will display wind speed to weather div
-      // Storing the wind speed year
+      // Storing the wind speed
       var windSpeed = response.wind.speed;
       console.log("this is wind speed is " + windSpeed);
       // Creating an element to hold the windspeed
       var windSpeedDisplay = $("<p>").html("<strong>Wind Speed: </strong>" + windSpeed);
-      // Displaying the wind speed year
+      // Displaying the wind speed
       weatherDiv.append(windSpeedDisplay);
       
       //Code below will display wind gust to weather div
-      // Storing the wind speed year
+      // Storing the wind gust
       var windGust = response.wind.gust;
       console.log("This is wind gust is " + windGust);
-      // Creating an element to hold the windspeed
+      // Creating an element to hold the wind gust
       var windGustDisplay = $("<p>").html("<strong>Wind Gust: </strong>" + windGust);
-      // Displaying the wind speed year
+      // Displaying the wind gust
       weatherDiv.append(windGustDisplay);
 
       //Code below displays the weather data. NEEDS WORK!
       //Able to get weather info, but the entire array, not specific pieces of data
       var weather = JSON.stringify(response.weather);
       console.log("this is weather" + weather);
-      // Creating an element to hold the windspeed
+      // Creating an element to hold the weather data
       var weatherDisplay = $("<p>").html("<strong>Weather: </strong>" + weather);
-      // Displaying the wind speed year
+      // Displaying the wether data
       weatherDiv.append(weatherDisplay);
 
       //Code below will display temps (in kelvins! Must convert to Fahrenheit) to weather div
-      // Storing the wind speed year
+      // Storing the current temperature
       var currentTemp = response.main.temp;
       console.log("This is current temperature :" + currentTemp);
-      // Creating an element to hold the windspeed
+      // Creating an element to hold the current temp
       var currentTempDisplay = $("<p>").html("<strong>Current Temp: </strong>" + currentTemp);
-      // Displaying the wind speed year
+      // Displaying the current temp
       weatherDiv.append(currentTempDisplay);
 
       //Code below will display temps (in kelvins! Must convert to Fahrenheit) to weather div
-      // Storing the wind speed year
+      // Storing the max temp
       var maxTemp = response.main.temp_max;
       console.log("This is max temperature :" + maxTemp);
-      // Creating an element to hold the windspeed
+      // Creating an element to hold max temp
       var maxTempDisplay = $("<p>").html("<strong>Max temp: </strong>" + maxTemp);
-      // Displaying the wind speed year
+      // Displaying the max temp
       weatherDiv.append(maxTempDisplay);
 
       //Code below will display temps (in kelvins! Must convert to Fahrenheit) to weather div
-      // Storing the wind speed year
+      // Storing the min tem
       var minTemp = response.main.temp_min;
       console.log("This is min temperature :" + minTemp);
-      // Creating an element to hold the windspeed
+      // Creating an element to hold the min temp
       var minTempDisplay = $("<p>").html("<strong>Min temp: </strong>" + minTemp);
-      // Displaying the wind speed year
+      // Displaying the min temp
       weatherDiv.append(minTempDisplay);
   });
 
