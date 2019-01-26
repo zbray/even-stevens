@@ -15,6 +15,7 @@ body {
     padding-top: 50pt;
     
 
+
 }
 #search {
     width: 600px;
@@ -26,4 +27,8 @@ h1 {
     font-size: 125pt;
     padding-top: 50pt;
     color: white;
+}
+
+#weather{
+    background:white;
 }
