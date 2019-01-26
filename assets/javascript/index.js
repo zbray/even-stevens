@@ -10,9 +10,7 @@ $(document).ready(function () {
   };
   firebase.initializeApp(config);
 
-
-  //On click event that will take values entered and store
-
+  //On click event that will take values entered and store\
 
   // $("#submit").on("click", function (event) {
   //   event.preventDefault();
@@ -91,8 +89,6 @@ $(document).ready(function () {
   //     weatherDiv.append(minTempDisplay);
   //   });
 
-
-
   $("#submit").on("click", function (event) {
     event.preventDefault();
     var jobInput = $("#jobValue").val().trim();
@@ -108,25 +104,31 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (jobsResponse) {
       $("#jobsDiv").text(JSON.stringify(jobsResponse));
-      console.log(jobsResponse)
+      console.log(jobsResponse.listings.listing)
       console.log(jobsURL);
       var jobTitle = jobsResponse.listings.listing[0].title;
       var jobLocation = jobsResponse.listings.listing[0].company.location.name;
       var jobCompany = jobsResponse.listings.listing[0].company.name;
-      var jobDescription = jobsResponse.listings.listing[0].company.url;
+      var jobLink = jobsResponse.listings.listing[0].company.url;
 
       console.log(jobTitle);
       console.log(jobLocation);
       console.log(jobCompany);
-      console.log(jobDescription);
-      for (var i = 0; i < jobResults.length; i++) {
-        var newJob = $("<td>");
-
-
+      console.log(jobLink);
+      
+      for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
+        var newJob = $("<tr>").append(
+          
+          $("<td>").text(jobTitle),
+          $("<td>").text(jobLocation),
+          $("<td>").text(jobCompany),
+          $("<td>").text(jobLink),
+        );
+        $("#jobsdiv").append(newJob);
       }
 
 
-    });
-  });
-});
-// });
+    });//closes jobsResponse function
+  });//closes on click for job input
+// });//closes weather search api
+});//closes entire js page
