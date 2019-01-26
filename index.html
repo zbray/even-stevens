@@ -5,39 +5,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Links to Bootstrap, local CSS, Google Fonts and Firebase -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"> -->
   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Nixie+One|Rancho|Tulpen+One" rel="stylesheet">
+
   <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script> -->
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script> -->
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+    crossorigin="anonymous">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </head>
 
 <body>
   <!---Navbar-->
   <!--hrefs for home and about btn-->
-  <div id="testing">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-      <a class="navbar-brand" href="#" id="name">NextBestMove</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="homeBtn">Home </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="aboutBtn">About</a>
-          </li>
-        </ul>
-      </div>
+  <div class="pure-menu pure-menu-horizontal pure-menu-custom">
+    <a href="#" class="pure-menu-heading pure-menu-link" id="name">NextBestMove</a>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="homeBtn">Home</a></li>
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="aboutBtn">About</a></li>
+    </ul>
   </div>
-  </nav>
 
-  <div class="box">
+
+
+  <div class="box header">
     <h1>NextBestMove</h1>
     <input class="text-center" type="text" id="jobValue" placeholder="Job Title" />
     <input id="cityValue" name="city" type="text" pattern="[0-9]*" placeholder="City">
@@ -49,11 +49,25 @@
 
     <!--update depending on parameters-->
     <div class="box">
-      <table class="table" id="resultsCard">
-        <tr id="jobTitleTable"></tr>
-        <tr id="cityTable"></tr>
-        <tr id="descriptionTable"></tr>
-        <tr id="salaryTable"> </tr>
+      <table class="pure-table" id="resultsCard">
+        <thead>
+          <tr>
+            <th>Job Title</th>
+            <th>City</th>
+            <th>Description</th>
+            <th>Salary or X</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="newRow">
+            <td id="jobTitleTable">Database Engineer</td>
+            <td id="cityTable">Chicago</td>
+            <td id="descriptionTable">Engineer Data</td>
+            <td id="salaryTable">Money
+          </tr>
+          </tr>
+        </tbody>
       </table>
     </div>
 
@@ -61,14 +75,28 @@
    <div id="weatherdiv" class="box">
       <div id="weather">
       </div>
+
     </div>
     <div id="jobsdiv" class="box">
       <div id="jobs">
       </div>
-    </div>
-  </div>
+=======
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </div>
+
+  </div>
+  <div class="box" id="recent">
+    <table class="pure-table">
+      <tr class="pure-table-odd"></tr>
+    </table>
+  </div>
+  <!-- Recent div -->
+
+
+  
+=======
+
+
   <script src="assets/javascript/index.js"></script>
 </body>
 </html>
