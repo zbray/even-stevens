@@ -92,4 +92,3 @@ $("#submit").on("click", function (event) {
       weatherDiv.append(minTempDisplay);
   });
 
-});

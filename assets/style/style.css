@@ -3,32 +3,51 @@ body {
     background-size: cover;
 }
 
-#name{
+#name {
     font-family: 'Rancho', cursive;
 }
-#nav-link{
+
+#nav-link {
     font-family: 'Nixie One', cursive;
 }
-.box{
-    width: 100%;
-    text-align:center;
-    padding-top: 50pt;
-    
 
+.box {
+    width: 100%;
+    text-align: center;
+    padding-top: 50pt;
 
 }
+
 #search {
     width: 600px;
 }
+
 h1 {
     font-family: 'Rancho', cursive;
     width: 100%;
-    text-align:center;
+    text-align: center;
     font-size: 125pt;
     padding-top: 50pt;
     color: white;
 }
 
+
 #weather{
     background:white;
 }
+
+/* Pure elements */
+.pure-table {
+    margin:auto;
+}
+.pure-menu-custom a {
+    color: white;
+}
+
+.pure-menu-custom a:hover {
+    color:#777;
+}
+tbody {
+    background-color:#777;
+}
+
