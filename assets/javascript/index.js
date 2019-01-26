@@ -46,3 +46,7 @@ $("#search").on("click", function (event) {
     $("#weather").text(JSON.stringify(response));
   });
 });
+
+
+2839d424c20e5a81965724e469b669bb";
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=60642,us&appid=2839d424c20e5a81965724e469b669bb;
