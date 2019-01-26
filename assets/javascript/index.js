@@ -1,21 +1,25 @@
+
+
 $("#submit").on("click", function(event) {
     alert("hello");
     
-    var jobSearch = $("#jobValue").val().trim();
-    var queryURL = "https://authenticjobs.com/api/" + jobSearch + "?api_key=95681d175f84e545da6da7ac528eb17a&method=aj.jobs.get&id=1569";
-    $.ajax({
-        url: queryURL,
-           method: "GET"
-          }).then(function(response) {
-           $("#resultsCard").text(JSON.stringify(response));
-});
-});
+    
+    var jobSearch = $("#jobValue").val();
+    var queryURL = "https://authenticjobs.com/api/?api_key=30cf344b293c93f1d755fbebf7fc61fc&method=aj.jobs.get" + jobSearch;
 
+         $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function(response) {
+         $("#showResults").text(JSON.stringify(response));
+            Console.log(response);
+    });
+});
 
      $("#submit").on("click", function(event) {
         event.preventDefault();
+        
         var zipInput = $("#zipValue").val();
-
         var APIKey= "2839d424c20e5a81965724e469b669bb";
         var weatherSearch = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipInput +
       ",us&appid=" + APIKey;
@@ -25,16 +29,15 @@ $("#submit").on("click", function(event) {
             url: weatherSearch,
             method: "GET"
           }).then(function(response) {
-            $("#weather").text(JSON.stringify(response));
-            
+          $("#weather").text(JSON.stringify(response));
+            Console.log(response);
           });
-          console.log(response);
         });
 
 
 
 
-            // var box= $("<tr>")
+//var box= $("<tr>")
     // var jobTitleTable= $("<td>Text</td>")
     // var cityTable= $("<td>Text</td>")
     // var descriptionTable= $("<td>Text</td>")
