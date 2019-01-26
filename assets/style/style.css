@@ -16,6 +16,7 @@ body {
     text-align: center;
     padding-top: 50pt;
 
+
 }
 
 #search {
@@ -31,6 +32,10 @@ h1 {
     color: white;
 }
 
+
+#weather{
+    background:white;
+}
 
 #weather{
     background:white;
