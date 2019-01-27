@@ -5,17 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Links to local CSS, Google Fonts, Firebase, Pure CSS, Jquery -->
   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Nixie+One|Rancho|Tulpen+One" rel="stylesheet">
-
- 
-
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
     crossorigin="anonymous">
-  
-    <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  //<script src="https://code.jquery.com/jquery.js"></script>
+
 
 </head>
 
@@ -96,9 +94,11 @@
                     <option>WY</option>
                   </select>
 
+
         <p> <button type="submit" class="button-error pure-button" id="submit">Search</button>
     
         </form>
+
   </div>
 
 
@@ -122,22 +122,49 @@
           <tr>
             <th>Job Title</th>
             <th>City</th>
-            <th>Description</th>
-            <th>Salary or X</th>
+            <th>Company</th>
+            <th>Link</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr class="newRow">
-            <td id="jobTitleTable">Database Engineer</td>
+        <tbody class="jobRows">
+          <tr>
+            <!-- <td id="jobTitleTable">Database Engineer</td>
             <td id="cityTable">Chicago</td>
-            <td id="descriptionTable">Engineer Data</td>
-            <td id="salaryTable">Money
-          </tr>
+            <td id="descriptionTable">whyThough.io</td>
+            <td id="salaryTable">Website url</td> -->
           </tr>
         </tbody>
       </table>
     </div>
+
+
+    <!--update depending on parameters-->
+    <div id="weatherdiv" class="box">
+      <div id="weather">
+      </div>
+    </div>
+    
+    <div id="jobsdiv" class="box">
+    </div>
+  </div>
+
+  <div class="box">
+    <table class="pure-table" id="resultsCard">
+      <thead>
+        <tr>
+          <th>Recent Keyword</th>
+          <th>Recent City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="recentSearch">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Recent div -->
+ 
 
 
 

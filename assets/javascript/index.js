@@ -1,3 +1,4 @@
+$(document).ready(function () {
   // Firebase init
   // var config = {
   //   apiKey: "AIzaSyCSjpthmc-lZ3kgzEA_JIJ53pUFEb7LyKw",
@@ -23,7 +24,7 @@ $("#submit").on("click", function (event) {
   console.log(stateInput)
 
   var weatherAPIKey = "2839d424c20e5a81965724e469b669bb";
-  var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + ",us&appid=" + weatherAPIKey;
+  var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + ",us&units=imperial&appid=" + weatherAPIKey;
 
   //ajax call for weather
   $.ajax({
@@ -99,4 +100,55 @@ $("#submit").on("click", function (event) {
     });  
     //hides search form so results, weather, and recent searches can appear.
     $('#jobDiv').empty();
+  
+  
+  // $("#submit").on("click", function (event) {
+//     event.preventDefault();
+//     var jobInput = $("#jobValue").val().trim();
+//     var cityInput = $("#cityValue").val().trim();
+
+//     console.log(jobInput)
+//     console.log(cityInput)
+
+//     var jobsURL = "https://authenticjobs.com/api/?api_key=950957111a9b72525093584bfdef9610&method=aj.jobs.search&keywords=" + jobInput + "&location=" + cityInput + "&format=json"
+
+//     //Jobs Function
+//     $.ajax({
+//       url: jobsURL,
+//       method: "GET"
+//     }).then(function (jobsResponse) {
+//       $("#jobsDiv").text(JSON.stringify(jobsResponse));
+//       //console log tests
+//       console.log(jobsResponse.listings.listing)
+//       console.log(jobsURL);
+//       console.log(jobTitle);
+//       console.log(jobLocation);
+//       console.log(jobCompany);
+//       console.log(jobLink);
+
+//       //For loop that runs through results of job search...
+//       for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
+//         var jobTitle = jobsResponse.listings.listing[i].title;
+//         var jobLocation = jobsResponse.listings.listing[i].company.location.name;
+//         var jobCompany = jobsResponse.listings.listing[i].company.name;
+//         var jobLink = jobsResponse.listings.listing[i].company.url;
+
+//               var newJob = $("<tr>").append(
+//                 $("<td>").text(jobTitle),
+//                 $("<td>").text(jobLocation),
+//                 $("<td>").text(jobCompany),
+//                 $("<td>").text(jobLink));
+          
+//               $(".jobRows").append(newJob);
+
+//         //...then clears the search form
+//         $("#jobValue").val("");
+//         $("#cityValue").val("");
+//       }
+
+//     }); //closes jobsResponse function
+//   }); //closes on click for job input
+//   // });//closes weather search api
+// }); //closes entire js page
   });
+
