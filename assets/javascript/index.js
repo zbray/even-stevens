@@ -106,10 +106,7 @@ $(document).ready(function () {
       $("#jobsDiv").text(JSON.stringify(jobsResponse));
       console.log(jobsResponse.listings.listing)
       console.log(jobsURL);
-      var jobTitle = jobsResponse.listings.listing[0].title;
-      var jobLocation = jobsResponse.listings.listing[0].company.location.name;
-      var jobCompany = jobsResponse.listings.listing[0].company.name;
-      var jobLink = jobsResponse.listings.listing[0].company.url;
+
 
       console.log(jobTitle);
       console.log(jobLocation);
@@ -117,8 +114,11 @@ $(document).ready(function () {
       console.log(jobLink);
       
       for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
+        var jobTitle = jobsResponse.listings.listing[i].title;
+        var jobLocation = jobsResponse.listings.listing[i].company.location.name;
+        var jobCompany = jobsResponse.listings.listing[i].company.name;
+        var jobLink = jobsResponse.listings.listing[i].company.url;
         var newJob = $("<tr>").append(
-          
           $("<td>").text(jobTitle),
           $("<td>").text(jobLocation),
           $("<td>").text(jobCompany),
