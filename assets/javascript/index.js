@@ -104,27 +104,34 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (jobsResponse) {
       $("#jobsDiv").text(JSON.stringify(jobsResponse));
+      //console log tests
       console.log(jobsResponse.listings.listing)
       console.log(jobsURL);
-
-
       console.log(jobTitle);
       console.log(jobLocation);
       console.log(jobCompany);
       console.log(jobLink);
-      
+
+      //For loop that runs through results of job search...
       for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
         var jobTitle = jobsResponse.listings.listing[i].title;
-        var jobLocation = jobsResponse.listings.listing[i].company.location.name;
+        var jobLocation = jobsResponse.listings.listing[i].company.location.name;k
         var jobCompany = jobsResponse.listings.listing[i].company.name;
         var jobLink = jobsResponse.listings.listing[i].company.url;
         var newJob = $("<tr>").append(
+
+          //...and displays the values we want to the webpage...
           $("<td>").text(jobTitle),
           $("<td>").text(jobLocation),
           $("<td>").text(jobCompany),
           $("<td>").text(jobLink),
         );
         $("#jobsdiv").append(newJob);
+        $("#jobRows")
+
+        //...then clears the search form
+        $("#jobValue").val("");
+        $("#cityValue").val("");
       }
 
 
