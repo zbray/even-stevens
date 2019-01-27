@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
     crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  //<script src="https://code.jquery.com/jquery.js"></script>
 
 
 </head>
@@ -30,127 +29,105 @@
     </div>
   </div>
 
-    <h1 id="projectTitle">NextBestMove</h1>
-    <div id="jobDiv">
+  <h1 id="projectTitle">NextBestMove</h1>
+  <div id="jobDiv">
     <form class="pure-form">
-      
-        <input type="text" id="jobValue" class="pure-input-rounded pure-input-1-4" placeholder="Job Title" >
-  
-   
-        <input type="text" id="cityValue" class="pure-input-rounded pure-input-1-4" placeholder="City">
-      
-        <label for="stateValue"></label>
-                <select id="state" class="pure-input-rounded">
-                    <option>State</option>  
-                    <option>AL</option>
-                    <option>AK</option>
-                    <option>AZ</option>
-                    <option>AR</option>
-                    <option>CA</option>
-                    <option>CO</option>
-                    <option>CT</option>
-                    <option>DE</option>
-                    <option>FL</option>
-                    <option>GA</option>
-                    <option>HI</option>
-                    <option>ID</option>
-                    <option>IL</option>
-                    <option>IN</option>
-                    <option>IA</option>
-                    <option>KS</option>
-                    <option>KY</option>
-                    <option>LA</option>
-                    <option>ME</option>
-                    <option>MD</option>
-                    <option>MA</option>
-                    <option>MI</option>
-                    <option>MN</option>
-                    <option>MS</option>
-                    <option>MO</option>
-                    <option>MT</option>
-                    <option>NE</option>
-                    <option>NV</option>
-                    <option>NH</option>
-                    <option>NJ</option>
-                    <option>NM</option>
-                    <option>NY</option>
-                    <option>NC</option>
-                    <option>ND</option>
-                    <option>OH</option>
-                    <option>OK</option>
-                    <option>OR</option>
-                    <option>PA</option>
-                    <option>RI</option>
-                    <option>SC</option>
-                    <option>SD</option>
-                    <option>TN</option>
-                    <option>TX</option>
-                    <option>UT</option>
-                    <option>VT</option>
-                    <option>VA</option>
-                    <option>WA</option>
-                    <option>WV</option>
-                    <option>WI</option>
-                    <option>WY</option>
-                  </select>
-
-
-        <p> <button type="submit" class="button-error pure-button" id="submit">Search</button>
-    
-        </form>
-
+      <input type="text" id="jobValue" class="pure-input-rounded pure-input-1-4" placeholder="Job Title">
+      <input type="text" id="cityValue" class="pure-input-rounded pure-input-1-4" placeholder="City">
+      <label for="stateValue"></label>
+      <select id="state" class="pure-input-rounded">
+        <option>State</option>
+        <option>AL</option>
+        <option>AK</option>
+        <option>AZ</option>
+        <option>AR</option>
+        <option>CA</option>
+        <option>CO</option>
+        <option>CT</option>
+        <option>DE</option>
+        <option>FL</option>
+        <option>GA</option>
+        <option>HI</option>
+        <option>ID</option>
+        <option>IL</option>
+        <option>IN</option>
+        <option>IA</option>
+        <option>KS</option>
+        <option>KY</option>
+        <option>LA</option>
+        <option>ME</option>
+        <option>MD</option>
+        <option>MA</option>
+        <option>MI</option>
+        <option>MN</option>
+        <option>MS</option>
+        <option>MO</option>
+        <option>MT</option>
+        <option>NE</option>
+        <option>NV</option>
+        <option>NH</option>
+        <option>NJ</option>
+        <option>NM</option>
+        <option>NY</option>
+        <option>NC</option>
+        <option>ND</option>
+        <option>OH</option>
+        <option>OK</option>
+        <option>OR</option>
+        <option>PA</option>
+        <option>RI</option>
+        <option>SC</option>
+        <option>SD</option>
+        <option>TN</option>
+        <option>TX</option>
+        <option>UT</option>
+        <option>VT</option>
+        <option>VA</option>
+        <option>WA</option>
+        <option>WV</option>
+        <option>WI</option>
+        <option>WY</option>
+      </select>
+      <p> <button type="submit" class="button-error pure-button" id="submit">Search</button>
+    </form>
   </div>
 
 
   <div id="showResults">
-
-      <div id="weatherDiv" class="box">
-
-        </div>
-        <div class="box" id="recent">
-            <table class="pure-table">
-              <tr class="pure-table-odd"></tr>
-            </table>
-          </div>
-      </div>
-
-
-    <!--update depending on parameters-->
-    <div class="box">
-      <table class="pure-table" id="resultsCard">
-        <thead>
-          <tr>
-            <th>Job Title</th>
-            <th>City</th>
-            <th>Company</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-
-        <tbody class="jobRows">
-          <tr>
-            <!-- <td id="jobTitleTable">Database Engineer</td>
-            <td id="cityTable">Chicago</td>
-            <td id="descriptionTable">whyThough.io</td>
-            <td id="salaryTable">Website url</td> -->
-          </tr>
-        </tbody>
+    <div id="weatherDiv" class="box">
+    </div>
+    <div class="box" id="recent">
+      <table class="pure-table">
+        <tr class="pure-table-odd"></tr>
       </table>
-    </div>
-
-
-    <!--update depending on parameters-->
-    <div id="weatherdiv" class="box">
-      <div id="weather">
-      </div>
-    </div>
-    
-    <div id="jobsdiv" class="box">
     </div>
   </div>
 
+
+  <!--update depending on parameters-->
   <div class="box">
     <table class="pure-table" id="resultsCard">
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>City</th>
+          <th>Company</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody class="jobRows">
+        <tr>
+          <!-- <td id="jobTitleTable">Database Engineer</td>
+            <td id="cityTable">Chicago</td>
+            <td id="descriptionTable">whyThough.io</td>
+            <td id="salaryTable">Website url</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box">
+    <table class="pure-table" id="recentCard">
       <thead>
         <tr>
           <th>Recent Keyword</th>
@@ -164,10 +141,8 @@
     </table>
   </div>
   <!-- Recent div -->
- 
-
-
 
   <script src="assets/javascript/index.js"></script>
 </body>
+
 </html>
