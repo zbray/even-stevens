@@ -102,6 +102,7 @@ $("#submit").on("click", function (event) {
     $('#jobDiv').empty();
   
   
+    
   // $("#submit").on("click", function (event) {
 //     event.preventDefault();
 //     var jobInput = $("#jobValue").val().trim();
@@ -149,6 +150,5 @@ $("#submit").on("click", function (event) {
 //     }); //closes jobsResponse function
 //   }); //closes on click for job input
 //   // });//closes weather search api
-// }); //closes entire js page
+}); //closes entire js page
   });
-
