@@ -12,31 +12,36 @@
 
 //On click event that will take values entered and store
 $("#submit").on("click", function (event) {
+
   event.preventDefault();
   var jobInput = $("#jobValue").val().trim();
-  var zipInput =$("#zipValue").val().trim();
+  var cityInput =$("#cityValue").val().trim();
+  var stateInput = $("#stateValue").val();
   // Testing to see if values are being pulled from Form.
   console.log(jobInput)
-  console.log(zipInput)
+  console.log(cityInput)
+  console.log(stateInput)
 
   var weatherAPIKey = "2839d424c20e5a81965724e469b669bb";
-  var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipInput + ",us&appid=" + weatherAPIKey;
-  
+  var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + ",us&appid=" + weatherAPIKey;
+
   //ajax call for weather
   $.ajax({
     url: weatherURL,
     method: "GET"
   }).then(function(response) {
-    $("#weatherDiv").text(JSON.stringify(response));
-    console.log(response)
 
+    console.log(response)
 
     //correct reference to temp (in kelvins! Must convert to Fahrenheit)
  
     console.log(response.main.temp_max);  
     console.log(response.main.temp_min);
 
-    var weatherDiv = $("#weather");
+    //Creates a weather div. results will append to the div created below
+    $("#weatherDiv").append('<div id="weather"></div>');
+
+    var weatherDivDisplay = $("#weather");
       //Code below will display wind speed to weather div
       // Storing the wind speed
       var windSpeed = response.wind.speed;
@@ -44,7 +49,7 @@ $("#submit").on("click", function (event) {
       // Creating an element to hold the windspeed
       var windSpeedDisplay = $("<p>").html("<strong>Wind Speed: </strong>" + windSpeed);
       // Displaying the wind speed
-      weatherDiv.append(windSpeedDisplay);
+      weatherDivDisplay.append(windSpeedDisplay);
       
       //Code below will display wind gust to weather div
       // Storing the wind gust
@@ -53,7 +58,7 @@ $("#submit").on("click", function (event) {
       // Creating an element to hold the wind gust
       var windGustDisplay = $("<p>").html("<strong>Wind Gust: </strong>" + windGust);
       // Displaying the wind gust
-      weatherDiv.append(windGustDisplay);
+      weatherDivDisplay.append(windGustDisplay);
 
       //Code below displays the weather data. NEEDS WORK!
       //Able to get weather info, but the entire array, not specific pieces of data
@@ -62,7 +67,7 @@ $("#submit").on("click", function (event) {
       // Creating an element to hold the weather data
       var weatherDisplay = $("<p>").html("<strong>Weather: </strong>" + weather);
       // Displaying the wether data
-      weatherDiv.append(weatherDisplay);
+      weatherDivDisplay.append(weatherDisplay);
 
       //Code below will display temps (in kelvins! Must convert to Fahrenheit) to weather div
       // Storing the current temperature
@@ -71,7 +76,7 @@ $("#submit").on("click", function (event) {
       // Creating an element to hold the current temp
       var currentTempDisplay = $("<p>").html("<strong>Current Temp: </strong>" + currentTemp);
       // Displaying the current temp
-      weatherDiv.append(currentTempDisplay);
+      weatherDivDisplay.append(currentTempDisplay);
 
       //Code below will display temps (in kelvins! Must convert to Fahrenheit) to weather div
       // Storing the max temp
@@ -80,7 +85,7 @@ $("#submit").on("click", function (event) {
       // Creating an element to hold max temp
       var maxTempDisplay = $("<p>").html("<strong>Max temp: </strong>" + maxTemp);
       // Displaying the max temp
-      weatherDiv.append(maxTempDisplay);
+      weatherDivDisplay.append(maxTempDisplay);
 
       //Code below will display temps (in kelvins! Must convert to Fahrenheit) to weather div
       // Storing the min tem
@@ -89,6 +94,9 @@ $("#submit").on("click", function (event) {
       // Creating an element to hold the min temp
       var minTempDisplay = $("<p>").html("<strong>Min temp: </strong>" + minTemp);
       // Displaying the min temp
-      weatherDiv.append(minTempDisplay);
+      weatherDivDisplay.append(minTempDisplay);
+  
+    });  
+    //hides search form so results, weather, and recent searches can appear.
+    $('#jobDiv').empty();
   });
-
