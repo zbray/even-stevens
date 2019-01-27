@@ -115,19 +115,31 @@ $(document).ready(function () {
       //For loop that runs through results of job search...
       for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
         var jobTitle = jobsResponse.listings.listing[i].title;
-        var jobLocation = jobsResponse.listings.listing[i].company.location.name;k
+        var jobLocation = jobsResponse.listings.listing[i].company.location.name;
         var jobCompany = jobsResponse.listings.listing[i].company.name;
         var jobLink = jobsResponse.listings.listing[i].company.url;
-        var newJob = $("<tr>").append(
 
-          //...and displays the values we want to the webpage...
-          $("<td>").text(jobTitle),
-          $("<td>").text(jobLocation),
-          $("<td>").text(jobCompany),
-          $("<td>").text(jobLink),
-        );
-        $("#jobsdiv").append(newJob);
-        $("#jobRows")
+
+
+
+              var newJob = $("<tr>").append(
+                $("<td>").text(jobTitle),
+                $("<td>").text(jobLocation),
+                $("<td>").text(jobCompany),
+                $("<td>").text(jobLink));
+          
+              $(".jobRows").append(newJob);
+
+
+        //...and displays the values we want to the webpage...
+        // var newJob = $("<tr>").append(
+        //   $("<td>").text(jobTitle),
+        //   $("<td>").text(jobLocation),
+        //   $("<td>").text(jobCompany),
+        //   $("<td>").text(jobLink),
+        // );
+        // $("#jobsdiv").append(newJob);
+        // $("#jobRows").append(newJob);
 
         //...then clears the search form
         $("#jobValue").val("");
@@ -135,7 +147,7 @@ $(document).ready(function () {
       }
 
 
-    });//closes jobsResponse function
-  });//closes on click for job input
-// });//closes weather search api
-});//closes entire js page
+    }); //closes jobsResponse function
+  }); //closes on click for job input
+  // });//closes weather search api
+}); //closes entire js page
