@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <!-- Links to local CSS, Google Fonts, Firebase, Pure CSS, Jquery -->
   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Nixie+One|Rancho|Tulpen+One" rel="stylesheet">
@@ -11,6 +12,7 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
     crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  //<script src="https://code.jquery.com/jquery.js"></script>
 
 
 </head>
@@ -18,25 +20,100 @@
 <body>
   <!---Navbar-->
   <!--hrefs for home and about btn-->
-  <div class="pure-menu pure-menu-horizontal pure-menu-custom">
-    <a href="#" class="pure-menu-heading pure-menu-link" id="name">NextBestMove</a>
-    <ul class="pure-menu-list">
-      <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="homeBtn">Home</a></li>
-      <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="aboutBtn">About</a></li>
-    </ul>
+  <div id="navbar">
+    <div class="pure-menu pure-menu-horizontal pure-menu-custom">
+      <a href="#" class="pure-menu-heading pure-menu-link" id="name">NextBestMove</a>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="homeBtn">Home</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="aboutBtn">About</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <h1 id="projectTitle">NextBestMove</h1>
+    <div id="jobDiv">
+    <form class="pure-form">
+      
+        <input type="text" id="jobValue" class="pure-input-rounded pure-input-1-4" placeholder="Job Title" >
+  
+   
+        <input type="text" id="cityValue" class="pure-input-rounded pure-input-1-4" placeholder="City">
+      
+        <label for="stateValue"></label>
+                <select id="state" class="pure-input-rounded">
+                    <option>State</option>  
+                    <option>AL</option>
+                    <option>AK</option>
+                    <option>AZ</option>
+                    <option>AR</option>
+                    <option>CA</option>
+                    <option>CO</option>
+                    <option>CT</option>
+                    <option>DE</option>
+                    <option>FL</option>
+                    <option>GA</option>
+                    <option>HI</option>
+                    <option>ID</option>
+                    <option>IL</option>
+                    <option>IN</option>
+                    <option>IA</option>
+                    <option>KS</option>
+                    <option>KY</option>
+                    <option>LA</option>
+                    <option>ME</option>
+                    <option>MD</option>
+                    <option>MA</option>
+                    <option>MI</option>
+                    <option>MN</option>
+                    <option>MS</option>
+                    <option>MO</option>
+                    <option>MT</option>
+                    <option>NE</option>
+                    <option>NV</option>
+                    <option>NH</option>
+                    <option>NJ</option>
+                    <option>NM</option>
+                    <option>NY</option>
+                    <option>NC</option>
+                    <option>ND</option>
+                    <option>OH</option>
+                    <option>OK</option>
+                    <option>OR</option>
+                    <option>PA</option>
+                    <option>RI</option>
+                    <option>SC</option>
+                    <option>SD</option>
+                    <option>TN</option>
+                    <option>TX</option>
+                    <option>UT</option>
+                    <option>VT</option>
+                    <option>VA</option>
+                    <option>WA</option>
+                    <option>WV</option>
+                    <option>WI</option>
+                    <option>WY</option>
+                  </select>
+
+
+        <p> <button type="submit" class="button-error pure-button" id="submit">Search</button>
+    
+        </form>
+
   </div>
 
 
-
-  <div class="box header">
-    <h1>NextBestMove</h1>
-    <input class="text-center" type="text" id="jobValue" placeholder="Job Keyword" />
-    <input id="cityValue" name="city" type="text" pattern="[0-9]*" placeholder="City">
-    <button id="submit">Search</button>
-  </div>
-
-  <!--results div-->
   <div id="showResults">
+
+      <div id="weatherDiv" class="box">
+
+        </div>
+        <div class="box" id="recent">
+            <table class="pure-table">
+              <tr class="pure-table-odd"></tr>
+            </table>
+          </div>
+      </div>
+
 
     <!--update depending on parameters-->
     <div class="box">
@@ -60,6 +137,7 @@
         </tbody>
       </table>
     </div>
+
 
     <!--update depending on parameters-->
     <div id="weatherdiv" class="box">

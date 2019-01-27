@@ -7,52 +7,68 @@ body {
     font-family: 'Rancho', cursive;
 }
 
-#nav-link {
-    font-family: 'Nixie One', cursive;
-}
-
 .box {
     width: 100%;
     text-align: center;
-    padding-top: 50pt;
+
+    padding-top: 50px;
 
 
 }
 
-#search {
-    width: 600px;
-}
-
-h1 {
+#projectTitle {
     font-family: 'Rancho', cursive;
     width: 100%;
     text-align: center;
-    font-size: 125pt;
-    padding-top: 50pt;
+    font-size: 150px;
+    padding-top: 50px;
+    margin:0px;
     color: white;
 }
 
-
 #weather{
     background:white;
+    width: 30%;
+    padding:7px;
+    border-radius: 15px;
+}
+#weatherDiv{
+    margin:auto;
 }
 
-#weather{
-    background:white;
+
+#jobDiv{
+    margin:auto;
+    text-align: center;
 }
 
 /* Pure elements */
+#navbar{
+    background:white;
+    padding: 5px;
+}
 .pure-table {
     margin:auto;
 }
+.pure-menu{
+    width: 960px;
+
+}
 .pure-menu-custom a {
-    color: white;
+    color: rgb(59, 59, 59);
+    font-family: 'Nixie One', cursive;
+    font-weight: 200px;
+    
 }
 
 .pure-menu-custom a:hover {
     color:#777;
+    background:white;
 }
 tbody {
     background-color:#777;
 }
 
+.pure-menu-list{
+    float:right;
+}
