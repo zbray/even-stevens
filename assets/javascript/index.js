@@ -1,26 +1,32 @@
 $(document).ready(function () {
   // Firebase init
-  // var config = {
-  //   apiKey: "AIzaSyCSjpthmc-lZ3kgzEA_JIJ53pUFEb7LyKw",
-  //   authDomain: "nextbestmove-444e9.firebaseapp.com",
-  //   databaseURL: "https://nextbestmove-444e9.firebaseio.com",
-  //   projectId: "nextbestmove-444e9",
-  //   storageBucket: "nextbestmove-444e9.appspot.com",
-  //   messagingSenderId: "541706167802"
-  // };
-  // firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyCSjpthmc-lZ3kgzEA_JIJ53pUFEb7LyKw",
+    authDomain: "nextbestmove-444e9.firebaseapp.com",
+    databaseURL: "https://nextbestmove-444e9.firebaseio.com",
+    projectId: "nextbestmove-444e9",
+    storageBucket: "nextbestmove-444e9.appspot.com",
+    messagingSenderId: "541706167802"
+  };
+  firebase.initializeApp(config);
 
-
+  var database = firebase.database();
   //On click event that will take values entered and store
   // Weather search
   $("#submit").on("click", function (event) {
 
-    //   event.preventDefault();
+      event.preventDefault();
     var jobInput = $("#jobValue").val().trim();
     var cityInput = $("#cityValue").val().trim();
-    var stateInput = $("#stateValue").val();
+    // var stateInput = $("#stateValue").val().trim();
     // Testing to see if values are being pulled from Form.
 
+    //Pushes this variables to database
+    database.ref().push({
+      jobInput: jobInput,
+      cityInput: cityInput,
+      // stateInput: stateInput,
+    });
 
     var weatherAPIKey = "2839d424c20e5a81965724e469b669bb";
     var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + ",us&units=imperial&appid=" + weatherAPIKey;
@@ -28,7 +34,7 @@ $(document).ready(function () {
 
     console.log(jobInput)
     console.log(cityInput)
-    console.log(stateInput)
+    // console.log(stateInput)
 
     //   //ajax call for weather
 
@@ -104,41 +110,57 @@ $(document).ready(function () {
       weatherDivDisplay.append(minTempDisplay);
       //hides search form so results, weather, and recent searches can appear.
       $('#jobDiv').empty();
-    }),
+    });
 
 
     // Jobs search
     // //Jobs Function
-    $.ajax({
-      url: jobsURL,
-      method: "GET"
-    }).then(function (jobsResponse) {
-      $("#jobsDiv").text(JSON.stringify(jobsResponse));
+    // $.ajax({
+    //   url: jobsURL,
+    //   method: "GET"
+    // }).then(function (jobsResponse) {
+    //   $("#jobsDiv").text(JSON.stringify(jobsResponse));
 
-      //For loop that runs through results of job search...
-      for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
-        var jobTitle = jobsResponse.listings.listing[i].title;
-        var jobLocation = jobsResponse.listings.listing[i].company.location.name;
-        var jobCompany = jobsResponse.listings.listing[i].company.name;
-        var jobLink = jobsResponse.listings.listing[i].company.url;
+    //   //For loop that runs through results of job search...
+    //   for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
+    //     var jobTitle = jobsResponse.listings.listing[i].title;
+    //     var jobLocation = jobsResponse.listings.listing[i].company.location.name;
+    //     var jobCompany = jobsResponse.listings.listing[i].company.name;
+    //     var jobLink = jobsResponse.listings.listing[i].company.url;
 
-        var newJob = $("<tr>").append(
-          $("<td>").text(jobTitle),
-          $("<td>").text(jobLocation),
-          $("<td>").text(jobCompany),
-          $("<td>").text(jobLink));
+    //     var newJob = $("<tr>").append(
+    //       $("<td>").text(jobTitle),
+    //       $("<td>").text(jobLocation),
+    //       $("<td>").text(jobCompany),
+    //       $("<td>").text(jobLink));
 
-        $(".jobRows").append(newJob);
+    //     $(".jobRows").append(newJob);
 
-        //...then clears the search form
-        $("#jobValue").val("");
-        $("#cityValue").val("");
-      }
+    //     //...then clears the search form
+    //     $("#jobValue").val("");
+    //     $("#cityValue").val("");
+    //   }
 
-      // }); //closes jobsResponse function
-    })
+    //   }); //closes jobsResponse function
+    // })
     // ).then(function(){});
 
     // }); //closes weather search api
+
+    database.ref().on("child_added", function (snapshot) {
+      var data = snapshot.val();
+  
+      var jobInput = data.jobInput;
+      var cityInput = data.cityInput;
+      // var stateInput = data.stateInput;
+  
+      //Creates new row for each search field and appends to table data from firebase
+      var newRow = $("<tr>").append(
+        $("<td>").text(jobInput),
+        $("<td>").text(cityInput));
+  
+      $("#recentSearch").append(newRow);
+    })
+
   }); //closes entire js page
 });
