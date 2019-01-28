@@ -119,7 +119,7 @@ $(document).ready(function () {
       url: jobsURL,
       method: "GET"
     }).then(function (jobsResponse) {
-      $("#jobsDiv").text(JSON.stringify(jobsResponse));
+      // $("#jobsDiv").text(JSON.stringify(jobsResponse));
       //console log tests
       console.log(jobsResponse.listings.listing)
       console.log(jobsURL);
@@ -133,23 +133,34 @@ $(document).ready(function () {
         var jobTitle = jobsResponse.listings.listing[i].title;
         var jobLocation = jobsResponse.listings.listing[i].company.location.name;
         var jobCompany = jobsResponse.listings.listing[i].company.name;
-        var jobLink = jobsResponse.listings.listing[i].company.url;
+        var jobLink = jobsResponse.listings.listing[i].url;
+        var jobDescription = jobsResponse.listings.listing[i].description;
 
-              var newJob = $("<tr>").append(
-                $("<td>").text(jobTitle),
-                $("<td>").text(jobLocation),
-                $("<td>").text(jobCompany),
-                $("<td>").text(jobLink));
+        var jobIdNumber = jobsResponse.listings.listing[i].id;
+
+        $("#jobsDiv").append('<div class="newJobDiv" id="' + jobIdNumber + '"></div>');
+
+        // for (var j = 0; j < jobsResponse.listings.listing.length; j++) {
+
+              $(`#${jobIdNumber}`).append(
+                $("<p>").html("<h1>" + jobTitle + "</h1>"),
+                $("<p>").html("<strong> Job Location(s): </strong>" + jobLocation),
+                $("<p>").html("<strong>Company: </strong>" + jobCompany),
+                $("<p>").html("<strong> Description: </strong><br> <div class='jobDescriptionDiv'>" + jobDescription + "</div>"),
+                $("<p>").html("<a href='" + jobLink + "'target=" + "_blank" + ">" + "Click here to apply" + "</a>"));
           
-              $(".jobRows").append(newJob);
+        //       $(".jobRows").append(newJob);
+      
 
         //...then clears the search form
         $("#jobValue").val("");
         $("#cityValue").val("");
-      }
+     }
+    });
 
 //     }); //closes jobsResponse function
   }); //closes on click for job input
   // });//closes weather search api
 }); //closes entire js page
-  });
+
+
