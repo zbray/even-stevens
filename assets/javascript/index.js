@@ -25,8 +25,6 @@ $(document).ready(function () {
 
     $("#recentSearch").append(newRow);
   })
-
-  // closes entire js page
 });
 
 // On click event that will take values entered and store
@@ -40,14 +38,15 @@ $("#submit").on("click", function (event) {
   // Testing to see if values are being pulled from Form.
   console.log(jobInput)
   console.log(cityInput)
-  console.log(stateInput)
 
   var weatherAPIKey = "2839d424c20e5a81965724e469b669bb";
   var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + ",us&units=imperial&appid=" + weatherAPIKey;
   var jobsURL = "https://authenticjobs.com/api/?api_key=950957111a9b72525093584bfdef9610&method=aj.jobs.search&keywords=" + jobInput + "&location=" + cityInput + "&format=json"
 
-  //ajax call for weather
+  //Promises to run both ajax calls on button click
   $.when(
+
+    //ajax call for weather
     $.ajax({
       url: weatherURL,
       method: "GET"
@@ -122,28 +121,12 @@ $("#submit").on("click", function (event) {
     //hides search form so results, weather, and recent searches can appear.
     $('#jobDiv').empty(),
 
-
-    // Jobs search
-    // $("#submit").on("click", function (event) {
-    // event.preventDefault();
-
-
-
-
-
     //Jobs Function
     $.ajax({
       url: jobsURL,
       method: "GET"
     }).then(function (jobsResponse) {
       // $("#jobsDiv").text(JSON.stringify(jobsResponse));
-      //console log tests
-      console.log(jobsResponse.listings.listing)
-      console.log(jobsURL);
-      console.log(jobTitle);
-      console.log(jobLocation);
-      console.log(jobCompany);
-      console.log(jobLink);
 
       //For loop that runs through results of job search...
       for (var i = 0; i < jobsResponse.listings.listing.length; i++) {
@@ -154,7 +137,12 @@ $("#submit").on("click", function (event) {
         var jobDescription = jobsResponse.listings.listing[i].description;
 
         var jobIdNumber = jobsResponse.listings.listing[i].id;
-
+        console.log(jobsResponse.listings.listing)
+        console.log(jobsURL);
+        console.log(jobTitle);
+        console.log(jobLocation);
+        console.log(jobCompany);
+        console.log(jobLink);
         $("#jobsDiv").append('<div class="newJobDiv" id="' + jobIdNumber + '"></div>');
         // for (var j = 0; j < jobsResponse.listings.listing.length; j++) {
         $(`#${jobIdNumber}`).append(
@@ -163,8 +151,6 @@ $("#submit").on("click", function (event) {
           $("<p>").html("<strong>Company: </strong>" + jobCompany),
           $("<p>").html("<strong> Description: </strong><br> <div class='jobDescriptionDiv'>" + jobDescription + "</div>"),
           $("<p>").html("<a href='" + jobLink + "'target=" + "_blank" + ">" + "Click here to apply" + "</a>"));
-
-        //       $(".jobRows").append(newJob);
 
         //...then clears the search form
         $("#jobValue").val("");
