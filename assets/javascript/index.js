@@ -81,12 +81,13 @@ $("#submit").on("click", function (event) {
       // Displaying the wind gust
       weatherDivDisplay.append(windGustDisplay);
 
-      //Code below displays the weather data. NEEDS WORK!
-      //Able to get weather info, but the entire array, not specific pieces of data
-      var weather = JSON.stringify(response.weather);
+      //weather is an array, to pick the first one you gotta bracket a 0
+      var weather = JSON.stringify(response.weather[0].main);
       console.log("this is weather" + weather);
-      // Creating an element to hold the weather data
-      var weatherDisplay = $("<p>").html("<strong>Weather: </strong>" + weather);
+      //making a new variable cleanWeater, to take out the "" 
+      var cleanedWeather= weather.substr(1).slice(0, -1);
+      // Creating an element to hold the cleanedWeather data
+      var weatherDisplay = $("<p>").html("<strong>Weather: </strong>" + cleanedWeather);
       // Displaying the wether data
       weatherDivDisplay.append(weatherDisplay);
 
