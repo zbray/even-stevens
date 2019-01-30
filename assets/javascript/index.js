@@ -9,23 +9,11 @@ $(document).ready(function () {
     messagingSenderId: "541706167802"
   };
   firebase.initializeApp(config);
+
   var database = firebase.database();
 
-  database.ref().on("child_added", function (snapshot) {
-    var data = snapshot.val();
 
-    var jobInput = data.jobInput;
-    var cityInput = data.cityInput;
-    // var stateInput = data.stateInput;
 
-    //Creates new row for each search field and appends to table data from firebase
-    var newRow = $("<tr>").append(
-      $("<td>").text(jobInput),
-      $("<td>").text(cityInput));
-
-    $("#recentSearch").append(newRow);
-  })
-});
 
 // On click event that will take values entered and store
 // Weather search
@@ -38,6 +26,11 @@ $("#submit").on("click", function (event) {
   // Testing to see if values are being pulled from Form.
   console.log(jobInput)
   console.log(cityInput)
+
+  database.ref().push({
+    jobInput: jobInput,
+    cityInput: cityInput,
+  });
 
   var weatherAPIKey = "2839d424c20e5a81965724e469b669bb";
   var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + ",us&units=imperial&appid=" + weatherAPIKey;
@@ -73,14 +66,16 @@ $("#submit").on("click", function (event) {
       // Displaying the wind speed
       weatherDivDisplay.append(windSpeedDisplay);
 
-      //Code below will display wind gust to weather div
-      // Storing the wind gust
-      var windGust = response.wind.gust;
-      console.log("This is wind gust is " + windGust);
-      // Creating an element to hold the wind gust
-      var windGustDisplay = $("<p>").html("<strong>Wind Gust: </strong>" + windGust);
-      // Displaying the wind gust
-      weatherDivDisplay.append(windGustDisplay);
+      //Gust is off for now as a speed of 0mph renders as undefined in the card and looks bad.
+      //will fix in future update
+      // //Code below will display wind gust to weather div
+      // // Storing the wind gust
+      // var windGust = response.wind.gust;
+      // console.log("This is wind gust is " + windGust);
+      // // Creating an element to hold the wind gust
+      // var windGustDisplay = $("<p>").html("<strong>Wind Gust: </strong>" + windGust);
+      // // Displaying the wind gust
+      // weatherDivDisplay.append(windGustDisplay);
 
       //weather is an array, to pick the first one you gotta bracket a 0
       var weather = JSON.stringify(response.weather[0].main);
@@ -159,4 +154,21 @@ $("#submit").on("click", function (event) {
         $("#cityValue").val("");
       }
     }).then(console.log("x"), console.log("x")))
+    database.ref().on("child_added", function (snapshot) {
+      var data = snapshot.val();
+    
+      var jobInput = data.jobInput;
+      var cityInput = data.cityInput;
+      // var stateInput = data.stateInput;
+
+      //Creates new row for each search field and appends to table data from firebase
+      var newRow = $("<tr>").append(
+        $("<td>").text(jobInput),
+        $("<td>").text(cityInput));
+      $("#recentSearch").append(newRow);
+    });
+})
+
+
+
 });
