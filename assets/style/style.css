@@ -58,8 +58,12 @@ body {
     margin:auto;
 }
 #weatherDiv{
-    margin:auto;
-    padding:0px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-family: 'News Cycle', sans-serif;
+    font-size-adjust: inherit;
 }
 
 
