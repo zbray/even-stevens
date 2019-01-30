@@ -61,6 +61,7 @@ $("#submit").on("click", function (event) {
 
       //Creates a weather div. results will append to the div created below
       $("#weatherDiv").append('<div id="weather"></div>');
+      $("#weather").html("<h1>Current Weather: </h1>")
 
       var weatherDivDisplay = $("#weather");
       //Code below will display wind speed to weather div

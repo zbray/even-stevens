@@ -1,6 +1,12 @@
 body {
     background-image: url("background.jpeg");
-    background-size: cover;
+-webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: top center;
+ background-attachment: fixed;
 }
 
 #name {
@@ -11,13 +17,14 @@ body {
     width: 100%;
     text-align: center;
 
-    padding-top: 50px;
+ margin:10px;
 
 
 }
+
 .newJobDiv{
     Background: white;
-    Width: 500px;
+    Width: 550px;
     color: black;
     float: left;
     margin:10px;
@@ -25,7 +32,7 @@ body {
     border-radius: 15px;
 }
 .jobDescriptionDiv{
-    Width: 475px;
+    Width: 525px;
     height: 150px;
     overflow-y: scroll;
     color:black;
@@ -37,18 +44,22 @@ body {
     text-align: center;
     font-size: 150px;
     padding-top: 50px;
+    padding-bottom: 50px;
     margin:0px;
     color: white;
+
 }
 
 #weather{
     background:white;
-    width: 30%;
+    width: 475px;
     padding:7px;
     border-radius: 15px;
+    margin:auto;
 }
 #weatherDiv{
     margin:auto;
+    padding:0px;
 }
 
 
@@ -56,7 +67,9 @@ body {
     margin:auto;
     text-align: center;
 }
-
+#recentCard{
+    clear: both;
+}
 /* Pure elements */
 #navbar{
     background:white;
@@ -65,10 +78,7 @@ body {
 .pure-table {
     margin:auto;
 }
-.pure-menu{
-    width: 960px;
 
-}
 .pure-menu-custom a {
     color: rgb(59, 59, 59);
     font-family: 'Nixie One', cursive;
@@ -86,4 +96,57 @@ tbody {
 
 .pure-menu-list{
     float:right;
+}
+
+.inputDiv{
+    margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    #projectTitle{
+    font-family: 'Rancho', cursive;
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+    padding-top: 50px;
+    margin:0px;
+    color: white;
+    }
+    .newJobDiv{
+
+    Width: 400px;
+ 
+    }
+    .jobDescriptionDiv{
+    Width: 375px;
+    }
+    #weather{
+        width: 400px;
+        margin:auto;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    #projectTitle{
+        font-family: 'Rancho', cursive;
+        width: 100%;
+        text-align: center;
+        font-size: 75px;
+        padding-top: 50px;
+        margin:0px;
+        color: white;
+    }
+    .newJobDiv{
+
+        Width: 350px;
+
+    }
+    .jobDescriptionDiv{
+        Width: 325px;
+
+    }
+    #weather{
+        width: 325px;
+        margin:auto;
+    }
 }
