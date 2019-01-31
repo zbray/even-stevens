@@ -64,16 +64,23 @@ body {
     flex-direction: row;
     font-family: 'News Cycle', sans-serif;
     font-size-adjust: inherit;
+    float:left;
 }
 
+.newJobDiv{
+    text-align: center;
+    flex-direction: row;
+    font-family: 'News Cycle', sans-serif;
 
+}
 #jobDiv{
     margin:auto;
     text-align: center;
 }
 #recentCard{
-    clear: both;
+    font-family: 'News Cycle', sans-serif;
 }
+
 /* Pure elements */
 #navbar{
     background:white;
