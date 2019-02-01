@@ -21,10 +21,7 @@ body {
 
 
 }
-#recentfloat{
-    position: relative;
-    right: 0px;
-}
+
 .newJobDiv{
     Background: white;
     Width: 550px;
@@ -40,9 +37,6 @@ body {
     overflow-y: scroll;
     color:black;
     
-}
-#testingCSS{
-    float:right;
 }
 #projectTitle {
     font-family: 'Rancho', cursive;
@@ -70,23 +64,16 @@ body {
     flex-direction: row;
     font-family: 'News Cycle', sans-serif;
     font-size-adjust: inherit;
-    float:left;
 }
 
-.newJobDiv{
-    text-align: center;
-    flex-direction: row;
-    font-family: 'News Cycle', sans-serif;
 
-}
 #jobDiv{
     margin:auto;
     text-align: center;
 }
 #recentCard{
-    font-family: 'News Cycle', sans-serif;
+    clear: both;
 }
-
 /* Pure elements */
 #navbar{
     background:white;
