@@ -12,14 +12,19 @@ $(document).ready(function () {
 
   var database = firebase.database();
 
-  // On click event that will take values entered and store
-  // Weather search
-  $("#submit").on("click", function (event) {
+  // User Input Validation
 
-    event.preventDefault();
+  $("[name='keyword']").prop("required", true);
+  $("[name='city']").prop("required", true);
+  //On Click Event
+  $("#submit").on("click", function (event) {
+    $("#myform").valid();
+    event.preventDefault(); 
+
     var jobInput = $("#jobValue").val().trim();
     var cityInput = $("#cityValue").val().trim();
     var stateInput = $("#stateValue").val();
+    
     // Testing to see if values are being pulled from Form.
     console.log(jobInput)
     console.log(cityInput)
@@ -150,7 +155,7 @@ $(document).ready(function () {
           $("#jobValue").val("");
           $("#cityValue").val("");
         }
-      }).then(console.log("x"), console.log("x")))
+      }).then(console.log("x"), console.log("y")))
     database.ref().on("child_added", function (snapshot) {
       var data = snapshot.val();
       var jobInput = data.jobInput;
@@ -162,5 +167,6 @@ $(document).ready(function () {
         $("<td>").text(cityInput));
       $("#recentSearch").append(newRow);
     });
+
   })
 });
