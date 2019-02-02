@@ -9,8 +9,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
     crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+  <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/style/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
@@ -29,11 +29,11 @@
 
   <h1 id="projectTitle">NextBestMove</h1>
   <div id="jobDiv">
-    <form class="pure-form">
-      <input type="text" id="jobValue" class="inputDiv pure-input-rounded pure-input-1-4" placeholder="Job Title">
-      <input type="text" id="cityValue" class="inputDiv pure-input-rounded pure-input-1-4" placeholder="City">
+    <form id="myForm" class="pure-form">
+      <input type="text" id="jobValue" class="inputDiv pure-input-rounded pure-input-1-4" placeholder="Job Keyword" required />
+      <input type="text" id="cityValue" class="inputDiv pure-input-rounded pure-input-1-4" placeholder="City" required/>
       <label for="stateValue"></label>
-      <select id="state" class="pure-input-rounded">
+      <select id="state" class="pure-input-rounded" required>
         <option>State</option>
         <option>AL</option>
         <option>AK</option>
@@ -93,17 +93,15 @@
   <!-- Weather Results -->
   <div id="showResults">
     <div id="weatherDiv" class="box">
-
     </div>
   </div>
 
-  
 
   <!-- Job Results -->
   <div id="jobsDiv" class="box">
 
   </div>
-<div class="box">
+  <div class="box">
     <table class="pure-table" id="recentCard">
       <thead>
         <tr>
