@@ -17,8 +17,8 @@ $(document).ready(function () {
   $("[name='keyword']").prop("required", true);
   $("[name='city']").prop("required", true);
   //On Click Event
-  $("#submit").on("click", function (event) {
-    $("#myform").valid();
+  $("#myForm").on("submit", function (event) {
+
     event.preventDefault(); 
 
     var jobInput = $("#jobValue").val().trim();
